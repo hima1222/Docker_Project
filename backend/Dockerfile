@@ -1,0 +1,13 @@
+FROM node:18-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
+
+# Install nodemon for dev hot reload
+RUN npm install -g nodemon
+
+COPY . .
+
+CMD ["npm", "run", "dev"]
