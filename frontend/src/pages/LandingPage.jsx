@@ -12,11 +12,11 @@ const LandingPage = () => {
       <div className="landing-container">
         <div className="overlay">
           <div className="landing-content">
-            <h1>Welcome to Cafe Love ☕</h1>
+            <h1>Welcome to CafeLove</h1>
             <p>
               Experience the rich aroma, cozy vibes, and authentic taste of
               handcrafted coffee. At Cafe Love, every sip tells a story brewed
-              with passion. 🌿
+              with passion. 
             </p>
             <button className="btn-cta" onClick={() => navigate("/signup")}>
               Join Us Today
