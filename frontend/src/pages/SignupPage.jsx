@@ -4,6 +4,7 @@ import "./SignupPage.css";
 export default function Signup() {
   const [formData, setFormData] = useState({ name: "", email: "", password: "" });
   const [message, setMessage] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -12,6 +13,11 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
 
     try {
       const res = await fetch("http://localhost:5000/api/signup", {
@@ -60,6 +66,13 @@ export default function Signup() {
             value={formData.password}
             onChange={handleChange}
             required
+          />
+          <label>Confirm Password</label>
+          <input 
+            type="password" 
+            placeholder="Confirm Your Password" 
+            value={confirmPassword} 
+            onChange={(e) => setConfirmPassword(e.target.value)} 
           />
 
           <button type="submit">Sign Up</button>

@@ -1,0 +1,64 @@
+/* General Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  font-family: "Poppins", sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #F5E6CA; /* Latte Cream */
+}
+
+/* Nav Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #F5E6CA;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-links li a:hover {
+  color: #D4A373; /* Golden Caramel */
+  transform: scale(1.05);
+}
+
+/* Auth Navbar Style */
+.auth-navbar {
+  background-color: #1B1B1B; /* Espresso Black */
+  border-bottom: 2px solid #A0522D; /* Cinnamon */
+}
+
+/* Main Navbar Style */
+.main-navbar {
+  background-color: #3E2723; /* Dark Coffee Brown */
+  border-bottom: 2px solid #D4A373; /* Golden Caramel */
+}
+
+/* Highlight Button */
+.btn-highlight {
+  background-color: #A0522D; /* Cinnamon */
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  color: #F5E6CA;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-highlight:hover {
+  background-color: #D4A373; /* Golden Caramel */
+  color: #1B1B1B; /* Espresso Black */
+}

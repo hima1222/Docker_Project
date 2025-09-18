@@ -1,0 +1,98 @@
+/* Full Background */
+.landing-container {
+  height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1920&q=80"); 
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Dark Overlay for readability */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(27, 27, 27, 0.7); /* Espresso Black w/ transparency */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Content Section */
+.landing-content {
+  text-align: center;
+  color: #F5E6CA; /* Latte Cream */
+  max-width: 700px;
+  padding: 2rem;
+  z-index: 2;
+  animation: fadeInUp 1.5s ease;
+}
+
+/* Heading */
+.landing-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #D4A373; /* Golden Caramel */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Description */
+.landing-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #F5E6CA;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* CTA Button */
+.btn-cta {
+  background-color: #A0522D; /* Cinnamon */
+  color: #F5E6CA;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.btn-cta:hover {
+  background-color: #D4A373; /* Golden Caramel */
+  color: #1B1B1B; /* Espresso Black */
+}
+
+/* Simple Fade Animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn-cta {
+  background-color: #A0522D; /* Cinnamon */
+  color: #F5E6CA;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-cta:hover {
+  background-color: #D4A373; /* Golden Caramel */
+  color: #1B1B1B; /* Espresso Black */
+}

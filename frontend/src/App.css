@@ -1,0 +1,19 @@
+body{
+  margin: 0;
+}
+
+.dashboard {
+  color: #F5E6CA;            /* Latte Cream */
+  background-color: #1B1B1B; /* Espresso Black */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dashboard h1 {
+  font-size: 2rem;
+  color: #D4A373; /* Golden Caramel */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}

@@ -22,7 +22,7 @@ export default function Login() {
 
       const data = await res.json();
       if (res.ok) {
-        localStorage.setItem("token", data.token); // store JWT
+        localStorage.setItem("token", data.token);
         setMessage("Login successful ✅");
       } else {
         setMessage(data.message);
