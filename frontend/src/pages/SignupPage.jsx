@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./SignupPage.css";
 
 export default function Signup() {
   const [formData, setFormData] = useState({ name: "", email: "", password: "" });
   const [message, setMessage] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -14,29 +16,48 @@ export default function Signup() {
     e.preventDefault();
     setMessage("");
 
-    if (password !== confirmPassword) {
+    if (!formData.name || !formData.email || !formData.password) {
+      setMessage("Please fill all required fields.");
+      return;
+    }
+
+    if (formData.password !== confirmPassword) {
       alert("Passwords do not match!");
       return;
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/signup", {
+      const res = await fetch("http://localhost:5001/api/auth/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify( formData ),
       });
 
-      const data = await res.json();
-      setMessage(data.message);
+       // try to parse JSON, fall back to text
+      const contentType = res.headers.get("content-type") || "";
+      const body = contentType.includes("application/json") ? await res.json() : await res.text();
+
+      console.log("Response status:", res.status, "body:", body);
+
+      if (res.ok) {
+        setMessage(body.message || "Signup successful ✅");
+        // optionally navigate to login: navigate("/login");
+      } else {
+        // prefer server message if available
+        const serverMsg = (body && body.message) || body || `Error ${res.status}`;
+        setMessage(serverMsg);
+      }
     } catch (err) {
-      setMessage("Something went wrong");
+      console.error("Fetch error:", err);
+      setMessage(`Network or server error: ${err.message}`);
     }
+  
   };
 
   return (
     <div className="signup-container">
       <div className="signup-card">
-        <h1 className="signup-title">Join Cafe Love ☕</h1>
+        <h1 className="signup-title">Join CafeLove</h1>
         <form onSubmit={handleSubmit}>
           <label>Name</label>
           <input
